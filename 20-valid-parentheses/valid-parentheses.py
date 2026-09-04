@@ -1,0 +1,33 @@
+class Solution:
+    def isValid(self, s):
+        stack = []
+
+        for i in s:
+
+            if i == "(":
+                stack.append("(")
+            elif i == "[":
+                stack.append("[")
+            elif i == "{":
+                stack.append("{")
+
+            elif i == ")":
+                if not stack or stack[-1] != "(":
+                    return False
+                stack.pop()
+
+            elif i == "]":
+                if not stack or stack[-1] != "[":
+                    return False
+                stack.pop()
+
+            elif i == "}":
+                if not stack or stack[-1] != "{":
+                    return False
+                stack.pop()
+
+        return len(stack) == 0
+
+       
+                
+           
